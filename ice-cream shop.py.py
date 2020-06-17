@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Sat Mar 14 10:34:14 2020
-
-@author: pranav modak
-"""
-
 print("welcome to shahi ice-cream shop")
 print("1:mango ice-cream -$2")
 print("2:choclate ice-cream -$1")
