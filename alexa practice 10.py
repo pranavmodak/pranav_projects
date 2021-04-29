@@ -7,4 +7,7 @@ Created on Mon Apr 26 17:10:54 2021
 
 
 name=input("tell your best friends name: ")
-print(name+(" is my best friend"))
+if name== "gautam":
+    print(name+(" is my best friend"))
+else: 
+    print("i dont know her")
