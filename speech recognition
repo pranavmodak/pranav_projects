@@ -1,0 +1,28 @@
+try:
+    r=speech.Recognizer()
+    with speech.Microphone() as source:
+        r.adjust_for_ambient_noise(source)
+        print("Speak:")
+        engine.say("Speak")
+        engine.runAndWait()
+        audio=r.listen(source)
+    opreation=r.recognize_google(audio)
+    print("You said: "+opreation)
+    engine.say("you said: "+opreation)
+    engine.runAndWait()
+
+
+"after code gets over"
+
+except speech.UnknownValueError:
+    print("Could not understand audio")
+    engine.say("Could not understand audio")
+    engine.runAndWait()
+
+except speech.RequestError as e:
+    print("Could not request results; {0}".format(e))
+    engine.sayprint("Could not request results; {0}".format(e))
+    engine.runAndWait()
+
+except KeyboardInterrupt:
+    break
