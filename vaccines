@@ -1,0 +1,66 @@
+if 'vaccines' in command:
+                        print("Showing vaccines for age 1 - 18")
+                        engine.say("Showing vaccines for age 1 - 18")
+                        engine.runAndWait()
+                        
+                        print("BCG, OPV 0, Hepatitis B -1 at birth")
+                        engine.say("BCG, OPV 0, Hepatitis B -1 at birth")
+                        engine.runAndWait()
+                        
+                        print("IPV-1, DTwP-1, Hepatitis B -2, Hib -1, Rotavirus 1, PCV 1 at the age of 6 weeks")
+                        engine.say("IPV-1, DTwP-1, Hepatitis B -2, Hib -1, Rotavirus 1, PCV 1 ata the age of 6 weeks")
+                        engine.runAndWait()
+                        
+                        print("DTwP-2, IPV 2, Hib -2, Rotavirus 2, PCV 2 at the age of 10 weeks")
+                        engine.say("DTwP-2, IPV 2, Hib -2, Rotavirus 2, PCV 2 at the age of 10 weeks")
+                        engine.runAndWait()
+                        
+                        print("DTwP-3 , IPV-3 , Hib -3, Rotavirus 3, PCV 3 at the age of 14 weeks")
+                        engine.say("DTwP-3 , IPV-3 , Hib -3, Rotavirus 3, PCV 3 at the age of 14 weeks")
+                        engine.runAndWait()
+                        
+                        print("OPV 1, Hep B 3 at the age of 6 months")
+                        engine.say("OPV 1, Hep B 3 at the age of 6 months")
+                        engine.runAndWait()
+                        
+                        print("OPV 2, MMR-1 at the age of 9 months")
+                        engine.say("OPV 2, MMR-1 at the age of 9 months")
+                        engine.runAndWait()
+                        
+                        print("Typhoid Conjugate Vaccine we can give it between 9 - 12 months")
+                        engine.say("Typhoid Conjugate Vaccine we can give it between 9 to 12 months")
+                        engine.runAndWait()
+                        
+                        print("Hep-A 1 at thhe age of 12 months")
+                        engine.say("Hep-A 1 at the age of 12 months")
+                        engine.runAndWait()
+                        
+                        print("MMR 2, Varicella 1, PCV Booster at the age of 15 months")
+                        engine.say("MMR 2, Varicella 1, PCV Booster at the age of 15 months")
+                        engine.runAndWait()
+                        
+                        print("DTwP  B 1 / DTaP booster -1, IPV B 1, Hib booster 1 can be given in the age between 16 - 18")
+                        engine.say("DTwP  B 1 / DTaP booster -1, IPV B 1, Hib booster 1 can be given in the age between 16 to 18")
+                        engine.runAndWait()
+                        
+                        print("Hep-A 2 at the age of 18 months")
+                        engine.say("Hep-A 2 at the age of 18 months")
+                        engine.runAndWait()
+                        
+                        print("	Booster of Typhoid Conjugate Vaccine at the age of 2 years")
+                        engine.say("Booster of Typhoid Conjugate Vaccine at the age of 2 years")
+                        engine.runAndWait()
+                        
+                        print("	DTwP  B 2 / DTaP booster -2, OPV 3, MMR 3, Varicella 2 it acn be given in between the age of 4 - 6")
+                        engine.say("DTwP  B 2 / DTaP booster -2, OPV 3, MMR 3, Varicella 2 it acn be given in between the age of 4 - 6")
+                        engine.runAndWait()
+                        
+                        print("	Tdap / Td, HPV (Only for females, three doses at 0, 1-2 and 6 months at the age between 10 to 12 years")
+                        engine.say("Tdap / Td, HPV (Only for females, three doses at 0, 1-2 and 6 months at the age between 10 to 12 years")
+                        engine.runAndWait()
+                        
+                    if 'vaccine center' or 'vaccine centers' in command:
+                        print("here are some vaccine centers in pune sir")
+                        engine.say("here are some vaccine centers in pune sir")
+                        engine.runAndWait()
+                        webbrowser.open("https://www.google.com/search?q=some+vaccine+centres+for+babies+in+pune&safe=active&rlz=1C1CHZL_enIN903IN903&biw=1366&bih=625&ei=Az6mYPrQEoaz9QOoorjYDQ&oq=some+vaccine+centres+for+babies+in+pune&gs_lcp=Cgdnd3Mtd2l6EAM6BwgAEEcQsAM6BQgAEM0CUJFsWJhyYId2aAFwAngAgAHHAYgB9AeSAQMwLjaYAQCgAQGqAQdnd3Mtd2l6yAEIwAEB&sclient=gws-wiz&ved=0ahUKEwi63ve9itjwAhWGWX0KHSgRDtsQ4dUDCA4&uact=5")
