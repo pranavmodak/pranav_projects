@@ -30,6 +30,7 @@ byes={"au revoir its bye in French",
       "Tschüss its bye in German",
       "alavida its bye in hindi"}
 
+
 import pyttsx3
 import speech_recognition as sr
 import datetime
@@ -129,12 +130,14 @@ try:
     print("You said: "+j)
     
     if "Jarvis" in j:
+        
         while True:
             try:
                 #Take the user input to activate reception of Voice Commands
-                userInput=input("Press v to start and q to quit: ").lower()
                 E.say("Press v to start and q to quit: ")
                 E.runAndWait()
+                userInput=input("Press v to start and q to quit: ").lower()
+                
                 
                 if userInput=='v':
                     
@@ -151,12 +154,15 @@ try:
                     #Convert Voice Commands to Text
                     command=r.recognize_google(audio)
                     command = command.lower()
-                    E.say("OK. .")
+                    print("You said : " + command)
+                    E.say("You said : " + command)
                     E.runAndWait()
+                    
+                    
             
             # feature "time"
                     if 'time' in command :
-                       
+                        print("The current time is: ")
                         E.say("The current time is: ")
                         E.runAndWait()
                         E.say(now.strftime("%H:%M:%S"))
@@ -164,7 +170,7 @@ try:
                         E.runAndWait()
                     
                 # feature "playing anything"
-                    elif 'play' in command:
+                    elif 'play' and 'song' in command:
                         play = command.replace('play', '')
                         print("Playing " + play)
                         E.say("playing . ." + play)
@@ -172,12 +178,14 @@ try:
                         kit.playonyt(play)
                 # feature "opening google" 
                     elif 'google' in command :
+                        print("opening Google")
                         E.say("opening Google")
                         E.runAndWait()
                         webbrowser.open("www.google.com/")
                     
             # feature "opening youtube"
                     elif 'youtube' in command :
+                       print("Opening Youtube")
                        E.say("Opening Youtube")
                        E.runAndWait()
                        webbrowser.open("www.youtube.com/")
@@ -185,6 +193,7 @@ try:
             # feature "opening team website"
                     elif 'team website' in command:
                          E.say("Opening the team website for you!")
+                         E.runAndWait()
                          print("Opening the team website for you!")
                          E.say("Looks like its going well!")
                          print("Looks like its going well!")
@@ -193,26 +202,9 @@ try:
         
             
             # feature "To-do list"
-                    elif 'list' or 'to do' in command:
+                    
                         
-                        todo=[]
-        
-                        while True:
-                            to_do_list=input("Enter your task: ")
-                            todo.append(to_do_list)
-                            print("task added")
-                            playmore=input("do you want to add more y/n").lower()
-                            if playmore=="y":
-                                print()
-                            elif playmore=="n":
-                                print("bye")
-                                break
-                            else:
-                                print("command not found breaking")
-                                break
-                            
-                        print("your todo is: "+str(todo))
-        
+                    
             
             # feature "alarm"
                     elif 'alarm' in command:
@@ -235,73 +227,109 @@ try:
                                         playsound("Alarm.mp3")
                                         time.sleep(5)
                                         pass
+                                    
                             #Statement to Handle errors while playing Alarm beep.
-                                except:
-                                    pass
+                                except sr.UnknownValueError:
+                                    print("Sorry, Could not understand.")
+                                    E.say("Sorry, Could not understand.")
+                                    E.runAndWait()
+                                    
+                                except sr.RequestError as e:
+                                    print("Could not request results; {0}".format(e))
+                                    E.say("Could not request results; {0}".format(e))
+                                    E.runAndWait()
+                                    
+                                except KeyboardInterrupt:
+                                    print()
                                     
                 # feature "maths ChatBot"
-                    elif 'mathematics' or 'maths' in command:
+                    elif 'mathematics' in command:
                         
                         print("Hello Everyone")
+                        E.say("Hello Everyone")
+                        E.runAndWait()
                         print("welcome to the mathematical chatbot")
+                        E.say("welcome to the mathematical chatbot")
+                        E.runAndWait()
                         print("you can do the following functions")
+                        E.say("you can do the following functions")
+                        E.runAndWait()
                         print("1. Addition, 2. subtraction, 3. multiplication, 4. division, 5. perimeter and 6.area")
+                        E.say("1. Addition, 2. subtraction, 3. multiplication, 4. division, 5. perimeter and 6.area")
+                        E.runAndWait()
                         
-                        try:
-                            r=sr.Recognizer()
-                            with sr.Microphone() as source:
-                                r.adjust_for_ambient_noise(source)
-                                print("Speak")
-                                print("Listening. .")
-                                E.runAndWait()
-                                audio=r.listen(source)
-                            ask=r.recognize_google(audio)
-                            print("You said: "+ask)
-                            E.say("you said: "+ask)
+                        ask = input ("what opreation do you want to do: ")
+                        E.say("what opreation do you want to do: ")
+                        E.runAndWait()
+                        
+                        E.say("enter option number: ")
+                        E.runAndWait()
+                        num1 = int(input("Enter Your First Number: "))
+                        E.say("Enter Your First Number: ")
+                        E.runAndWait()
+                        num2 = int(input("Enter Your Second Number: "))
+                        E.say("Enter Your Second Number: ")
+                        E.runAndWait()
+                        
+                        if ask =='addition':
+                            print("Here is your sum to the question")
+                            E.say("Here is your sum to the question")
+                            E.runAndWait()
+                            print("The answer is: "+ str (num1+num2))
+                            E.say("The answer is: "+ str (num1+num2))
+                            E.runAndWait()
+                            
+                        elif ask =='subtraction':
+                            print("Here is your sum to the question")
+                            E.say("Here is your sum to the question")
+                            E.runAndWait()
+                            print("The answer is: "+str(num1-num2))
+                            E.say("The answer is: "+str(num1-num2))
+                            E.runAndWait()
+                            
+                        elif ask =='multiplication':
+                            print("Here is your product to the question")
+                            E.say("Here is your product to the question")
+                            E.runAndWait()
+                            print("The answer is: "+str(num1*num2))
+                            E.say("The answer is: "+str(num1*num2))
                             E.runAndWait()
                         
-                            E.say("enter option number: ")
-                            num1 = int(input("Enter Your First Number: "))
-                            num2 = int(input("Enter Your Second Number: "))
+                        elif ask == 'division':
+                            print("Here is the quoteint to you answer")
+                            E.say("Here is the quoteint to you answer")
+                            E.runAndWait()
+                            print("The answer is: "+ str(num1/num2))
+                            E.say("The answer is: "+ str(num1/num2))
+                            E.runAndWait()
                             
-                            if ask =='addition':
-                                print("Here is your sum to the question")
-                                print("The answer is: "+ str (num1+num2))
+                        elif ask =='perimeter': 
+                            E.say("select square or rectange: ")
+                            E.runAndWait()
+                            sorr=input("select square or rectange: ").lower()                         
+                            if sorr == "square":
                                 
-                            elif ask =='subtraction':
-                                print("Here is your sum to the question")
-                                print("The answer is: "+str(num1-num2))
-                            
-                            elif ask =='multiplication':
-                                print("Here is your product to the question")
-                                print("The answer is: "+str(num1*num2))
-                                
-                            
-                            elif ask == 'division':
-                                print("Here is the quoteint to you answer")
-                                print("The answer is: "+ str(num1/num2))
-                            
-                            elif ask =='perimeter': 
-                                sorr=input("select square or rectange: ").lower()                         
-                                if sorr == "square":
-                                    
-                                    a=(num1+num1)
-                                    b=(num2+num2)
-                                    print("the perimeter is"+str(a+b))
-                            elif ask == "rectangle":
                                 a=(num1+num1)
                                 b=(num2+num2)
                                 print("the perimeter is"+str(a+b))
-                            
-                            
-                     
-                    
-                            elif ask=="area":
-                                print("the area is"+str(num1*num2))
-                                E.say("the area is"+str(num1*num2))
+                                E.say("the perimeter is"+str(a+b))
                                 E.runAndWait()
-                        except:
-                            pass
+                                
+                        elif ask == "rectangle":
+                            a=(num1+num1)
+                            b=(num2+num2)
+                            print("the perimeter is"+str(a+b))
+                            E.say("the perimeter is"+str(a+b))
+                            E.runAndWait()
+                            
+                            
+                 
+                
+                        elif ask=="area":
+                            print("the area is"+str(num1*num2))
+                            E.say("the area is"+str(num1*num2))
+                            E.runAndWait()
+                    
             
                     # feature "unwell"
                     elif 'unwell' or 'doctor' in command :
@@ -313,6 +341,7 @@ try:
                     
                     # feature "physician"
                     elif 'physician' in command:
+                        print("Finding physicians nearby!")
                         E.say("Finding physicians nearby!")
                         E.runAndWait()
                         webbrowser.open("https://www.google.com/search?q=physician+near+me&source=hp&ei=zSWeYLnbMOvez7sPzquDoAU&iflsig=AINFCbYAAAAAYJ4z3UFbnwhwH1S2PB7uUkji0QVngyS6&oq=physicians+&gs_lcp=Cgdnd3Mtd2l6EAEYADIKCAAQsQMQyQMQCjIFCAAQkgMyBQgAEJIDMgIIADIHCAAQsQMQCjIECAAQCjICCAAyAggAMgIIADIHCAAQsQMQCjoICAAQsQMQgwE6CAguELEDEIMBOgUIABCxAzoICAAQsQMQyQM6BQguELEDUOIEWJMWYOsnaABwAHgAgAGvAYgBhg6SAQQwLjExmAEAoAEBqgEHZ3dzLXdpeg&sclient=gws-wiz")
@@ -406,6 +435,7 @@ try:
                     
                     # feature "date"
                     elif 'date' in command :
+                        print("The current date is: ")
                         E.say("The current date is: ")
                         E.runAndWait()
                         E.say(now.strftime("%D:%M:%Y"))
@@ -439,8 +469,8 @@ try:
                             webbrowser.open("https://www.worldometers.info/coronavirus/#countries")
                             
                         elif covid =='2':
-                            print("here are the saftey pecaurions sir")
-                            E.say("here are the saftey pecaurions sir")
+                            print("here are the saftey pecaurtions sir")
+                            E.say("here are the saftey pecautions sir")
                             E.runAndWait()
                             
                             print("Wear a mask.")
@@ -824,20 +854,34 @@ try:
                             E.say('command not found')
                             E.runAndWait()
                             
+                            
                 #Statements to Handle errors while receiving voice commands
                     
 
             except sr.UnknownValueError:
                 print("Sorry, Could not understand.")
+                E.say("Sorry, Could not understand.")
+                E.runAndWait()
+                
             except sr.RequestError as e:
                     print("Could not request results; {0}".format(e))
+                    E.say("Could not request results; {0}".format(e))
+                    E.runAndWait()
+                        
+                        
             except KeyboardInterrupt:
-                print()  
-    
+                break
+
 except sr.UnknownValueError:
     print("Sorry, Could not understand.")
+    E.say("Sorry, Could not understand.")
+    E.runAndWait()
+    
 except sr.RequestError as e:
     print("Could not request results; {0}".format(e))
+    E.say("Could not request results; {0}".format(e))
+    E.runAndWait()
+    
 except KeyboardInterrupt:
     print()   
 
